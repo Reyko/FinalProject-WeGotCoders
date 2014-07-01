@@ -12,10 +12,13 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'devise'
 
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
+  gem 'faker'
+  gem 'pry-byebug'
 end
 
 
