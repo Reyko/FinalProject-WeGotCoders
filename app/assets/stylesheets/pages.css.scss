@@ -1,3 +1,27 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Colors
+@import "partials/variables.css.scss";
+
+
+.jumbotron{
+  background: {
+    image:url("jumbotron.jpg");
+    size:cover;
+    repeat:no-repeat;
+    position:center;
+  }
+
+  height:640px;
+}
+
+.jumbotron h1, .jumbotron .h1 {
+  color: $white;
+}
+
+.banner-info{
+  margin-top:100px;
+  color:$orange;
+}
