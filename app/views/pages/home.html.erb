@@ -19,7 +19,7 @@
     <div class="col-md-6">
       <h2>Find a parking space</h2>
       <p>Find a parking space in London with our unique navigation system.</p>
-      <p><a class="btn btn-default" href="#" role="button">View areas &raquo;</a></p>
+      <p><%= link_to "View areas &raquo;".html_safe, locations_path, :class => "btn btn-default", :role => "button" %></p>
    </div>
   </div>
   <hr>

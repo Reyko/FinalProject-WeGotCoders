@@ -1,8 +1,6 @@
 require 'pry'
 Given(/^that the user is on the registration page$/) do
  visit new_user_registration_path
- # @user = User.create(:email => "seramak@gmail.com", :password =>"passwords")
- # @user_number = User.count
 end
 
 When(/^the user enters his details$/) do
