@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'devise'
 gem 'bootstrap-will_paginate'
+gem "geocoder"
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
@@ -19,6 +20,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'faker'
   gem 'pry-byebug'
+  gem 'mocha'
 end
 
 

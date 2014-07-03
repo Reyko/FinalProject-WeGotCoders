@@ -1,1 +1,17 @@
-<h1><%= @location.name %></h1>
+<div class="container main">
+  <div class="row">
+    <div class="col-md-12">
+      <h1><%= @location.name %></h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+
+      <div id="map-canvas" data-latitude=<%= @location.latitude %> data-longitude=<%= @location.longitude %> >
+      </div>
+    </div>
+  </div>
+  
+</div>
+

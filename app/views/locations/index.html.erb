@@ -1,12 +1,18 @@
-<div class="container locations">
-  <h1>Parking locations</h1>
+<div class="container main">
   <div class="row">
-  <div class="col-md-12 text-center">  
-    <p>  <%= will_paginate %> </p>
-      <% @locations.each do |location| %>
-
-        <%=link_to location.name, location_path(location),:class => "location"%>
-
-      <% end %>
+    <div class="col-md-12">
+      <h1>Parking locations</h1>
+    </div>
   </div>
-</div>
+
+  <div class="row">
+    <div class="col-md-12 text-center">  
+      <p>  <%= will_paginate %> </p>
+        <% @locations.each do |location| %>
+
+          <%=link_to location.name, location_path(location),:class => "location"%>
+
+        <% end %>
+    </div>
+  </div>
+</div>  
