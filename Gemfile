@@ -14,6 +14,7 @@ gem 'devise'
 gem 'bootstrap-will_paginate'
 gem "geocoder"
 
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'cucumber-rails', :require => false
