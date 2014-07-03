@@ -12,7 +12,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'devise'
 gem 'bootstrap-will_paginate'
-gem "geocoder"
+gem 'geocoder'
+gem 'google_places'
 
 
 group :development, :test do
