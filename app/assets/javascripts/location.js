@@ -33,7 +33,42 @@ function addMarker(map,lat,lng){
     position: new google.maps.LatLng(lat,lng),
     map:map,
     icon:image
-  })
-}
+  });
+
+
+function onClickEvent(event, marker , map) { 
+  var latitude = marker.position.lat(); 
+  var longitude = marker.position.lng(); 
+  var end = latitude.toString() + " " + longitude.toString();
+
+  $.getJSON('http://freegeoip.net/json/', function(json){
+    var myIp = json;
+    var start = myIp.latitude.toString() + " " + myIp.longitude.toString();
+    calcRoute(start,end);
+  });
+
+};
+
+function calcRoute(start,end) {
+  var request = {
+    origin:start,
+    destination:end,
+    travelMode: google.maps.TravelMode.DRIVING
+  };
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(response);
+    }
+  });
+}; 
+
+
+google.maps.event.addListener(marker, 'click', function() { 
+  map.setCenter(new google.maps.LatLng(marker.position.lat(), marker.position.lng())); 
+    // map.setZoom(18); 
+    onClickEvent(event, marker,map); 
+  }); 
+}; 
+
 
 $(document).ready(initialize);
