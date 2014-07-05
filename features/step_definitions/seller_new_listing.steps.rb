@@ -26,8 +26,8 @@ When(/^the seller fills the details in the new listing form$/) do
   fill_in("Address", :with => Faker::Address.street_address)
   fill_in("Postcode", :with => Faker::Address.postcode)
   fill_in("Description", :with => Faker::Lorem.paragraph)
+  attach_file('Image', "/Users/serafeim/Desktop/parking.jpg")
   fill_in("Price", :with => Faker::Number.number(10))
-
 end
 
 When(/^the seller clicks the add new listing button$/) do
