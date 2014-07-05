@@ -3,6 +3,7 @@ class SellersController < ApplicationController
   before_action :check_user
   def index
     @listing = Listing.new
+    @seller = current_user
   end
 
   #Checking if current user is of type seller
