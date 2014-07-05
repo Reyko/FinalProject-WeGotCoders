@@ -39,6 +39,12 @@
   </div>
 </div>
 
+<% if flash[:alert] %>
+    <div id="general-alert" class="alert alert-danger" role="alert"><%= flash[:alert] %></div>
+<% end %>
+<% if flash[:notice] %>  
+    <div id="general-alert" class="alert alert-success" role="alert"><%= flash[:notice] %></div>
+<% end %>
 <%= yield %>
 
 
@@ -50,7 +56,7 @@
 </div>
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
 </body>
 </html>
 

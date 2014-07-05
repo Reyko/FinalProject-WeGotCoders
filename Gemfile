@@ -23,6 +23,9 @@ group :development, :test do
   gem 'faker'
   gem 'pry-byebug'
   gem 'mocha'
+  gem 'launchy', '~> 2.4.2'
+  gem 'shoulda-matchers'
+  gem 'simplecov', '~> 0.7.1', :require => false
 end
 
 

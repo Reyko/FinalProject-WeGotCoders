@@ -1,4 +1,3 @@
-require 'pry'
 Given(/^that the user is on the registration page$/) do
  visit new_user_registration_path
 end

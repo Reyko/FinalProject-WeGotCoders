@@ -8,7 +8,7 @@ Given(/^a user exists$/) do
     :email => @email ,
     :password => @password)
 end
-@wip
+
 Given(/^locations exist$/) do
   Location.create(:name => "Aldgate")
   Location.create(:name => "Barbican")

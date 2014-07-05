@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'shoulda/matchers'
 
 RSpec.describe Location, :type => :model do
   
@@ -29,6 +30,10 @@ RSpec.describe Location, :type => :model do
   it "should have longitude and latitude" do
     expect(@location.latitude).to eq(40.7143528)
     expect(@location.longitude).to eq(-74.0059731)
+  end
+
+  it "should have many listings" do
+    should have_many(:listings)
   end
 
 end
