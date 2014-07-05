@@ -14,6 +14,9 @@ gem 'devise'
 gem 'bootstrap-will_paginate'
 gem 'geocoder'
 gem 'google_places'
+gem 'carrierwave'
+gem 'rmagick', '2.13.2'
+gem 'remotipart', '~> 1.2'
 
 
 group :development, :test do
