@@ -1,6 +1,7 @@
 Feature: Listings for sale
   Background: 
-    Given a listing exist
+    Given a seller exists
+    And a listing exists
     And a buyer exists
     And the buyer signs in
 

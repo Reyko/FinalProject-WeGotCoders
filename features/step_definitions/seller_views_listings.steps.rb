@@ -12,7 +12,5 @@ Given(/^the seller has listings$/) do
 end
 
 Then(/^the seller should see them in his profile page$/) do
-     save_and_open_page
    page.should have_css('.listing')
-
 end
