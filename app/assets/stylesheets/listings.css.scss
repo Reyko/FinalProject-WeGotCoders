@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// Colors
+@import "partials/variables.css.scss";
+
 .listing{
   width:150px;
   height:150px;
@@ -13,4 +16,43 @@
 .listing-profile-img{
   width:100%;
   height:100%;
+}
+
+.parking{
+  position:relative;
+    .inner{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    padding:15px;
+   
+
+    h4{
+      color:$black;
+      background-color: $green;
+      width: 100%;
+      min-height: 30px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      padding:5px;
+      margin: 0;
+    }
+    p{
+      color:$white;
+      font-size:20px;
+      margin-top:20%;
+    }
+    .view{
+      margin-top:0px;
+    }
+
+     &:hover{
+      background-color:rgba(0, 0, 0, 0.5);
+    }
+  }
+
+
 }
