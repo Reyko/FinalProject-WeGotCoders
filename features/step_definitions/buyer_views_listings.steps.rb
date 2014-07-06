@@ -1,6 +1,18 @@
-Given(/^a listing exist$/) do
-  Listing.create!(
+Given(/^seller exists$/) do
+  @email = Faker::Internet.email
+  @password = "password"
+  @seller = Seller.create(
+              :first_name => Faker::Name.first_name,
+              :last_name => Faker::Name.last_name,
+              :email => @email,
+              :password => @password)
+end
+
+Given(/^a listing exists$/) do
+  Location.create!(:id =>1, :name => "Aldgate")
+  @listing = Listing.create!(
     :title => "Listing One",
+    :seller_id => @seller.id,
     :location_id => 1,
     :address => "Somewhere",
     :postcode => "12322",

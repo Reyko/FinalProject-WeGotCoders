@@ -6,6 +6,10 @@ class ListingsController < ApplicationController
     @listings = Listing.all
   end
 
+  def show
+    @listing = Listing.find(params[:id])
+  end
+
   def create
     @listing = Listing.new(allowed_params)
     @listing.seller_id = current_user.id

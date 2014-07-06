@@ -1,0 +1,27 @@
+<div class="container main">
+  <div class="row">
+    <div class="col-md-12">
+      <h1><%= @listing.title %></h1>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-6">
+      <%= image_tag @listing.avatar.url , :class => "img-responsive shadow" %>
+    </div>
+
+    <div class="col-md-6">
+      <p><b>Area:</b> <%= @listing.location.name %></p>
+      <p><b>Sold by:</b> <%= "#{@listing.seller.first_name} #{@listing.seller.last_name}" %></p>
+      <p><b>Address:</b> <%= @listing.address %></p>
+      <p><b>Postcode:</b> <%= @listing.postcode %></p>
+      <p><b>Description:</b> <%= @listing.description %></p>
+      <p><b>Price:</b> <%= number_to_currency(@listing.price ,unit: "£",:precision => (@listing.price.round == @listing.price) ? 0 : 2) %> </p>
+      <p><button type="button" class="btn btn-success">Buy Now</button></p>
+    </div>
+  </div>
+
+
+
+
