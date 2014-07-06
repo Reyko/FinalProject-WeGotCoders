@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   before_action :authenticate_user!
-  before_action :check_user, :only => :index
+  before_action :check_user, :only => :index, :only => :show
 
   def index
     @listings = Listing.all
