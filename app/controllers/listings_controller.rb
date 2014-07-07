@@ -15,9 +15,9 @@ class ListingsController < ApplicationController
     @listing.seller_id = current_user.id
 
     if @listing.save
-       redirect_to sellers_path, :notice => "Record Saved"
+      redirect_to sellers_path, :notice => "Record Saved"
     else
-      redirect_to sellers_path
+      redirect_to sellers_path, :alert => @listing.errors.full_messages.to_sentence
     end  
   end
 

@@ -5,22 +5,23 @@
     </div>
   </div>
 
-<% @listings.each do |listing| %>
   <div class="row">
-    <div class="col-md-4">
-        <div class="parking text-center">
-          <%= image_tag listing.avatar.url,:class => "img-responsive" %>
-          <div class="inner">
-            <h4><%= listing.title %> (<%= listing.location.name %>)</h4>
-            <p>Price <%= number_to_currency(listing.price ,unit: "£",:precision => (listing.price.round == listing.price) ? 0 : 2) %></p>
-            <p class="view">
-              <%= link_to "View listing &raquo;".html_safe, listing_path(listing), :class => "btn btn-info", :role => "button" %>
-           </p>
-          </div>
+    <% @listings.each do |listing| %>
+        <div class="col-md-4">
+            <div class="parking text-center">
+              <%= image_tag listing.avatar.url,:class => "img-responsive shadow" %>
+              <div class="inner">
+                <h4><%= listing.title %> (<%= listing.location.name %>)</h4>
+                <p>Price <%= number_to_currency(listing.price ,unit: "£",:precision => (listing.price.round == listing.price) ? 0 : 2) %></p>
+                <p class="view">
+                  <%= link_to "View listing &raquo;".html_safe, listing_path(listing), :class => "btn btn-info", :role => "button" %>
+               </p>
+              </div>
+            </div>
         </div>
-    </div>
+
+    <% end %>
   </div>
-<% end %>
 </div>
 
 
