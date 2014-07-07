@@ -15,11 +15,7 @@ class ListingsController < ApplicationController
     @listing.seller_id = current_user.id
 
     if @listing.save
-      flash[:notice] = "Record Saved"
-      respond_to do |format|
-        format.html { redirect_to sellers_path, :notice => "Record Saved"}
-        format.js {render text: "Object successfully destroyed", status: :created }
-      end
+       redirect_to sellers_path, :notice => "Record Saved"
     else
       redirect_to sellers_path
     end  
