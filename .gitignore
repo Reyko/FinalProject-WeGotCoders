@@ -17,3 +17,5 @@
 /public/uploads/*
 coverage/*
 simplecov
+# Ignore application configuration
+/config/application.yml

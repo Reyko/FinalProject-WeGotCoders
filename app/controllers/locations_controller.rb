@@ -7,7 +7,7 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.find(params[:id])
-    @client = GooglePlaces::Client.new("AIzaSyB0B0X06CrlKX4Dr0RrKCnjBIlD6Tpi8xs")
+    @client = GooglePlaces::Client.new(ENV["GOOGLE_API_KEY"])
     @parkings = @client.spots(@location.latitude, @location.longitude, :types => 'parking',
      :radius => 2000,:exclude => ['cafe','restaurant','lodging','food'])
   end
