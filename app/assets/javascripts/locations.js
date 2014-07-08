@@ -1,6 +1,7 @@
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
 
+
 function initialize() {
   directionsDisplay = new google.maps.DirectionsRenderer();
   var latitude = $("#map-canvas").data("latitude");
@@ -70,5 +71,11 @@ google.maps.event.addListener(marker, 'click', function() {
   }); 
 }; 
 
+// Checking if we are on the map show page
+$(document).ready(function() {
+   if($("#map-canvas").length > 0) {
+    initialize();
+   }
+});
 
-$(document).ready(initialize);
+  

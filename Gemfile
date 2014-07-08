@@ -1,3 +1,4 @@
+source 'https://code.stripe.com'
 source 'https://rubygems.org'
 
 gem 'rails', '4.1.1'
@@ -20,6 +21,7 @@ gem "mini_magick"
 gem 'rails_12factor', group: :production
 gem 'rails_stdout_logging'
 gem 'figaro'
+gem 'stripe'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'

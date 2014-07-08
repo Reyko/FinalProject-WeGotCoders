@@ -8,11 +8,30 @@ class OrdersController < ApplicationController
   end
 
   def create
+  
     @listing = Listing.find(params[:listing_id])
     @order = Order.new(allowed_params)
     @order.listing_id = @listing.id
     @order.seller_id = @listing.seller_id
     @order.buyer_id = current_user.id
+
+    # Charging credit card
+    Stripe.api_key = ENV['STRIPE_API_KEY']
+
+    # Get the credit card details submitted by the form
+    token = params[:stripeToken]
+
+    # Create the charge on Stripe's servers - this will charge the user's card
+    begin
+    charge = Stripe::Charge.create(
+      :amount => (@listing.price * 100).floor, # amount in cents, again
+      :currency => "gbp",
+      :card => token,
+      :description => @listing.title
+    )
+    rescue Stripe::CardError => e
+      flash[:alert => e.message]
+    end
 
     if @order.save
       redirect_to root_path, :notice => "Transaction completed"
