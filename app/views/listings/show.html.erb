@@ -18,7 +18,7 @@
       <p><b>Postcode:</b> <%= @listing.postcode %></p>
       <p><b>Description:</b> <%= @listing.description %></p>
       <p><b>Price:</b> <%= number_to_currency(@listing.price ,unit: "£",:precision => (@listing.price.round == @listing.price) ? 0 : 2) %> </p>
-      <p><button type="button" class="btn btn-success">Buy Now</button></p>
+      <p><%= link_to "Buy Now", new_listing_order_path(@listing), :class => "btn btn-success", :type => "button" %></p>
     </div>
   </div>
 

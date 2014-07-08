@@ -6,4 +6,8 @@ RSpec.describe Seller, :type => :model do
     should have_many(:listings).dependent(:destroy) 
   end
 
+  it "should have many orders" do
+    should have_many(:orders)
+  end
+
 end

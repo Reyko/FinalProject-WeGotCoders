@@ -16,7 +16,6 @@ Then(/^the buyer should see the specific listing details$/) do
   expect(page).to have_content @listing.postcode
   expect(page).to have_content @listing.description
   expect(page).to have_content "£3,000"
-  save_and_open_page
   page.find('.img-responsive')['src'].should have_content @listing.avatar.url
 end
 

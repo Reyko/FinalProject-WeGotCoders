@@ -10,6 +10,10 @@ RSpec.describe Listing, :type => :model do
     should belong_to(:seller)
   end
 
+  it "should have one order" do
+    should have_one(:order)
+  end
+
   it "should validate for title" do
     should validate_presence_of(:title) 
   end
