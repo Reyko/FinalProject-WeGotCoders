@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   before_action :authenticate_user!
-  before_action :check_user, :only => [:index, :show]
+  before_action :check_user, :only => :index
 
   def index
     @listings = Listing.all
@@ -8,6 +8,9 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
+    if current_user.id != @listing.seller.id && current_user.type != "Buyer"
+      redirect_to root_url, :alert => "Please create a buyer account to view this page"
+    end
   end
 
   def create
@@ -27,7 +30,7 @@ class ListingsController < ApplicationController
   end
   #Checking if current user is of type buyer
   def check_user
-    if current_user.type != "Buyer"
+    if current_user.type != "Buyer" 
       redirect_to root_url, :alert => "Please create a buyer account to view this page"
     end
   end

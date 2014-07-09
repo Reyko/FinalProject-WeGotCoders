@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Finalproject</title>
+  <title>Parking Finder</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
@@ -17,46 +17,60 @@
 </head>
 <body>
 
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to "Parking Finder", root_path, :class => "navbar-brand" %>
-    </div>
-    <% if user_signed_in? %>
- 
-        <%= button_to 'Logout', destroy_user_session_path, :method => :delete, :type => "button", :class => "btn btn-default navbar-btn btn-success navbar-right"  %>   
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to  "Parking Finder", root_path, :class => "navbar-brand" %>
+        </div>
+        <div class="navbar-collapse collapse">
 
-        <p class="navbar-text navbar-right sign-in">Signed in as <%= "#{current_user.first_name} #{current_user.last_name}" %></p>  
-    <% else %>
+          <% if user_signed_in? %>
+            <ul class="nav navbar-nav">
+              <li class="<%= 'active' if params[:controller] == 'pages' %>"><%= link_to "Home",root_path %> </li>
+              <li class="<%= 'active' if params[:controller] == 'listings' %>"><%= link_to "Buy a Parking",listings_path %> </li>
+              <li class="<%= 'active' if params[:controller] == 'locations' %>"><%= link_to "Find a Parking",locations_path %> </li>
+ 
+              <% if current_user.type == "Seller" %>
+                  <li class="<%= 'active' if params[:controller] == 'sellers' %>"><%= link_to "Seller account",sellers_path %> </li>
+              <% end %>
+            </ul>
+
+            <%= button_to 'Logout', destroy_user_session_path, :method => :delete, :type => "button", :class => "btn btn-default navbar-btn btn-success navbar-right"  %>   
+
+            <p class="navbar-text navbar-right sign-in">Signed in as <%= "#{current_user.first_name} #{current_user.last_name}" %></p>  
+            
+            <% else %>
     
-           <%= render "layouts/sign_in" %>
+              <%= render "layouts/sign_in" %>
    
-    <% end %>
- 
+          <% end %>
+        </div><!--/.navbar-collapse -->
+      </div>  
+    </div>
   </div>
-</div>
-
-<% if flash[:alert] %>
-    <div id="general-alert" class="alert alert-danger" role="alert"><%= flash[:alert] %></div>
-<% end %>
-<% if flash[:notice] %>  
-    <div id="general-alert" class="alert alert-success" role="alert"><%= flash[:notice] %></div>
-<% end %>
-<%= yield %>
 
 
+  <% if flash[:alert] %>
+      <div id="general-alert" class="alert alert-danger" role="alert"><%= flash[:alert] %></div>
+  <% end %>
+  <% if flash[:notice] %>  
+      <div id="general-alert" class="alert alert-success" role="alert"><%= flash[:notice] %></div>
+  <% end %>
+  <%= yield %>
 
-<div class="container text-left">
-  <footer>
-    <p>&copy; We Got Coders 2014</p>
-  </footer>
-</div>
+
+
+  <div class="container text-left">
+    <footer>
+      <p>&copy; We Got Coders 2014</p>
+    </footer>
+  </div>
 
 
 
