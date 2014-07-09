@@ -5,7 +5,7 @@ class SellersController < ApplicationController
     @listing = Listing.new
     @seller = current_user
   end
-
+  
   #Checking if current user is of type seller
   private
   def check_user

@@ -25,15 +25,24 @@ class OrdersController < ApplicationController
     begin
     charge = Stripe::Charge.create(
       :amount => (@listing.price * 100).floor, # amount in cents, again
-      :currency => "gbp",
+      :currency => "usd",
       :card => token,
       :description => @listing.title
     )
+
     rescue Stripe::CardError => e
       flash[:alert => e.message]
     end
 
+    Stripe::Transfer.create(
+      :amount => charge.amount,
+      :currency => charge.currency,
+      :recipient => @listing.seller.recipient_id,
+      :description => "#{@listing.title} payment"
+    )
+ 
     if @order.save
+      @listing.destroy
       redirect_to root_path, :notice => "Transaction completed"
     else
       redirect_to new_listing_order_path, :alert => @order.errors.full_messages.to_sentence

@@ -1,5 +1,5 @@
 <div class="navbar-collapse collapse">
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name),html: {:class => "navbar-form navbar-right"}) do |f| %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name),html: {:class => "navbar-form navbar-right", :id => "sign_in"}) do |f| %>
 
     <div class="form-group">
       <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Email" %>
