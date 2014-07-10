@@ -10,6 +10,10 @@ RSpec.describe Order, :type => :model do
     should belong_to :seller
   end
 
+  it "should belong to listing" do
+    should belong_to :listing
+  end
+
   it "should validate address" do
     should validate_presence_of :address
   end

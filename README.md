@@ -20,13 +20,13 @@ Finally, both sellers and buyers can use the parking finder navigation system wh
 
 ## Statistics ##
 
-Code LOC: 307
+Code LOC: 308
 
-Test LOC: 410
+Test LOC: 413
 
 Code to Test Ratio: 1:1.3
 
-90.91% covered at 2.43 hits/line
+90.98% covered at 2.43 hits/line
     
 ### Key Gems ###
 
