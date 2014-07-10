@@ -29,7 +29,7 @@ function parkings(map){
 
 
 function addMarker(map,lat,lng){
-  var image = "../assets/parking-icon.png";
+  var image = "<%= image_url 'parking-icon.png' %>";
   var marker = new google.maps.Marker({
     position: new google.maps.LatLng(lat,lng),
     map:map,
