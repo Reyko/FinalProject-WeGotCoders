@@ -22,6 +22,8 @@ gem 'rails_12factor', group: :production
 gem 'rails_stdout_logging'
 gem 'figaro'
 gem 'stripe'
+gem "fog", "~> 1.3.1"
+
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
