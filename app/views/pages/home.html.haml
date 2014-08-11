@@ -1,0 +1,32 @@
+.jumbotron
+  .container.banner-info
+    %h1.text-center
+      Parking Finder
+    %p.text-center
+      Whether you want to find a parking space to rent or you want to buy or sell the property itself, Parking finder is here to help you!
+    %p.text-center
+      = link_to "Register &raquo".html_safe, new_user_registration_path, :class => "btn btn-primary btn-lg",
+    :role => "button" 
+
+.container
+  .row
+    .col-md-6
+      %h2
+        Buy a parking space
+      %p
+        Parking properties are available for sale within the area of London.
+      %p
+        = link_to "View listings &raquo;".html_safe, listings_path, :class => "btn btn-default", :role => "button" 
+    .col-md-6
+      %h2
+        Find a parking space
+      %p
+        Find a parking space in London with our unique navigation system.
+      %p
+        = link_to "View areas &raquo;".html_safe, locations_path, :class => "btn btn-default", :role => "button" 
+  %hr
+
+
+
+
+

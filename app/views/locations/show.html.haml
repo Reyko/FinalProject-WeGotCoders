@@ -1,0 +1,15 @@
+.container.main
+  .row
+    .col-md-12
+      %h1
+        = @location.name 
+        
+  .row
+    .col-md-12
+      = content_tag :div, id: "map-canvas", data: {latitude: @location.latitude, longitude: @location.longitude, parkings: @parkings} do end
+
+  .row
+    .col-md-6
+      %h2
+        Route 
+      #directions-panel

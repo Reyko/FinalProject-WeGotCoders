@@ -1,0 +1,18 @@
+.container.main
+  .row
+    .col-md-12
+      %h1
+        Parkings for sale
+
+  .row
+    - @listings.each do |listing| 
+      .col-md-4
+        .parking.text-center
+          = image_tag listing.avatar.url,:class => "img-responsive shadow" 
+          .inner
+            %h4= "#{listing.title} ( #{listing.location.name} )"
+            %p= "Price #{number_to_currency(listing.price ,unit: "£",:precision => (listing.price.round == listing.price) ? 0 : 2)}" 
+            %p.view
+              = link_to "View listing &raquo;".html_safe, listing_path(listing), :class => "btn btn-info", :role => "button" 
+
+

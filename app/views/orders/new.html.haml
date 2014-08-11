@@ -1,0 +1,36 @@
+.container.main
+  .row
+    .col-md-12
+      %h1
+        Customer details
+  .row
+    .col-md-6
+      = form_for [@listing,@order], url:{action: "create"}  do |f| 
+        .alert.alert-danger.payment-errors { role="alert" }
+
+        .form-group
+          = f.label :address 
+          = f.text_field :address, :class => "form-control" 
+
+        .form-group
+          = f.label :city 
+          = f.text_field :city, :class => "form-control" 
+        .form-group
+          = f.label :postcode 
+          = f.text_field :postcode, :class => "form-control"  
+        .form-group
+          = label_tag :credit_card,"Credit Card No." 
+          = text_field_tag :credit_card, nil, :class => "form-control", :data => {:stripe => "number"}, :name => nil 
+        .form-group
+          = label_tag :cvc,"CVC"
+          = text_field_tag :cvc, nil, :class => "form-control",:data => {:stripe => "cvc"}, :name => nil   
+
+        .form-group
+          = label_tag :exp_date, "Card Expiration"
+          = select_month nil, {add_month_numbers_true: true},{name: nil, id: "card_month",:data => {:stripe => "exp-month"}}
+          = select_year nil, {start_year: Date.today.year, end_year: Date.today.year + 3},{name: nil, id: "card_year",:data => {:stripe => "exp-year"}} 
+   
+        .form-group
+          = f.submit "Complete order",:class =>"btn btn-success pull-right"
+
+     

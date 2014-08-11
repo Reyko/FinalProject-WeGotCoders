@@ -1,0 +1,12 @@
+
+= form_for(resource, as: resource_name, url: session_path(resource_name),html: {:class => "navbar-form navbar-right", :id => "sign_in"}) do |f| 
+
+  .form-group
+    = f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Email" 
+
+  .form-group
+    = f.password_field :password, autocomplete: "off",:class => "form-control", :placeholder => "Password" 
+
+  = f.submit "Sign in", :class => "btn btn-success",:type => "submit" 
+
+

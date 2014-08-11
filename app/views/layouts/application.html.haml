@@ -1,0 +1,76 @@
+!!!
+%html
+  %head
+    %title
+      Parking Finder
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true 
+
+    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_KEY']}" 
+  
+    = javascript_include_tag "https://js.stripe.com/v2/" 
+
+    = javascript_tag "Stripe.setPublishableKey('#{ENV['STRIPE_PUBLIC_KEY']}')" 
+   
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true 
+
+    = csrf_meta_tags 
+
+  %body
+
+    .navbar.navbar-inverse.navbar-fixed-top{:role => "navigation"}
+      .container
+        .navbar-header
+          %button{:type => "button", :class =>"navbar-toggle", :"data-toggle" => "collapse", :"data-target" => ".navbar-collapse"}
+            %span.sr-only
+              Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+
+          = link_to  "Parking Finder", root_path, :class => "navbar-brand" 
+
+        .navbar-collapse.collapse
+
+          - if user_signed_in? 
+            %ul.nav.navbar-nav
+              %li{:class => " = 'active' if params[:controller] == 'pages' "}
+                = link_to "Home",root_path 
+              %li{:class => " = 'active' if params[:controller] == 'listings' "}
+                = link_to "Buy a Parking",listings_path 
+              %li{:class => " = 'active' if params[:controller] == 'locations' "}
+                = link_to "Find a Parking",locations_path 
+   
+              - if current_user.type == "Seller" 
+                %li{:class => " = 'active' if params[:controller] == 'sellers' "}
+                  = link_to "Seller account",sellers_path 
+  
+
+            = button_to 'Logout', destroy_user_session_path, :method => :delete, :type => "button", :class => "btn btn-default navbar-btn btn-success navbar-right"    
+
+            %p.navbar-text.navbar-right.sign-in Signed in as "#{current_user.first_name} #{current_user.last_name}"   
+            
+          - else 
+            
+            = render "layouts/sign_in" 
+   
+
+
+    - if flash[:alert] 
+      #general-alert.alert.alert-danger{:role => "alert"} 
+        = flash[:alert] 
+
+    - if flash[:notice]   
+      #general-alert.alert.alert-success{:role => "alert"}
+        = flash[:notice]
+
+    = yield 
+
+
+
+    .container.text-left
+      %footer
+        %p &copy; We Got Coders 2014
+
+
+
